@@ -22,6 +22,12 @@ public class MonsterController
 	}
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
-		System.out.println();
+		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
+		System.out.println(currentMonster.getName() + " suggests arms. They have " + currentMonster.getArmCount());
+		System.out.println("How many do you want to eat?");
+		Scanner myScanner = new Scanner(System.in);
+		int consumed = myScanner.nextInt();
+		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+		System.out.println("Ok, now " + currentMonster.getName() + " has " + currentMonster.getArmCount() +" arms left.");
 	}
 }
