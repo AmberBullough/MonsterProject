@@ -37,7 +37,7 @@ public class MonsterController
 			System.out.println("Not that hungry are you?");
 		
 		}
-		else if(consumed > cureentMonster.getArmCount())
+		else if(consumed > currentMonster.getArmCount())
 		{
 			System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
 		}
