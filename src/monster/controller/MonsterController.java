@@ -28,5 +28,9 @@ public class MonsterController
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 	
+		if(consumed < 3)
+		{
+			System.out.println("You cannot eat a negative amount silly human!");
+		}
 	}
 }
