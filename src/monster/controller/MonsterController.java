@@ -67,7 +67,7 @@ public class MonsterController
 		}
 		else
 		{
-			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
+			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
 			System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
 		}
 	}
