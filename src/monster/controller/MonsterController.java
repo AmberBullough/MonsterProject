@@ -41,5 +41,10 @@ public class MonsterController
 		{
 			System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
 		}
+		else
+		{
+			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+			System.out.println("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
+		}
 	}
 }
