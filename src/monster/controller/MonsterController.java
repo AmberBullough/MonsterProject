@@ -57,7 +57,7 @@ public class MonsterController
 			System.out.println("You cannot eat a negative amount silly human!");
 			consumed = 0;
 		}
-		else if(eyeConsumed > currentMonster.getArmCount())
+		else if(eyeConsumed > currentMonster.getEyeCount())
 		{
 			System.out.println("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
 		}
