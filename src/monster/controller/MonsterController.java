@@ -70,6 +70,16 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
 			System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
 		}
-		
+		// This is showing why double doesnt work with ==
+		if (tentacle == currentMonster.getTentacleAmount())
+		{
+			System.out.println("Exact matches of double values are not guaranteed");
+			System.out.println("Only the sepcicified values are known, one digit beyond is not known, only");
+			System.out.println("Two digitsfurther and beyond is completely unknown each could be any number");
+		}
+		else
+		{
+			System.out.println("Sweet");
+		}
 	}	
 }
