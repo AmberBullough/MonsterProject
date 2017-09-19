@@ -27,7 +27,6 @@ public class MonsterController
 		System.out.println("How many do you want to eat?");
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
-		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-		System.out.println("Ok, now " + currentMonster.getName() + " has " + currentMonster.getArmCount() +" arms left.");
+	
 	}
 }
