@@ -48,7 +48,7 @@ public class MonsterController
 		}
 
 		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
-		System.out.println(currentMonster.getName() + " suggests his chocolately red eyes. They have " + currentMonster.getEyeCount());
+		System.out.println(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
 		System.out.println("How many do you want to eat?");
 		int eyeConsumed = myScanner.nextInt();
 	
