@@ -32,5 +32,9 @@ public class MonsterController
 		{
 			System.out.println("You cannot eat a negative amount silly human!");
 		}
+		else if(consumed == 0)
+		{
+			
+		}
 	}
 }
