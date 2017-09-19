@@ -28,13 +28,18 @@ public class MonsterController
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 	
-		if(consumed < 3)
+		if(consumed < 0)
 		{
 			System.out.println("You cannot eat a negative amount silly human!");
 		}
 		else if(consumed == 0)
 		{
-			
+			System.out.println("Not that hungry are you?");
+		
+		}
+		else if(consumed > cureentMonster.getArmCount())
+		{
+			System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
 		}
 	}
 }
