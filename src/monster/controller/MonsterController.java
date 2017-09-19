@@ -1,10 +1,18 @@
 package monster.controller;
 
 import monster.model.MarshmallowMonster;
+import monster.view.MonsterDisplay;
 import java.util.Scanner;
 
 public class MonsterController 
 {
+	private MonsterDisplay popup;
+		
+	public MonsterController()
+	{
+		popup = new MonsterDisplay();
+	}
+	
 	public void start ()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
@@ -70,16 +78,23 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
 			System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
 		}
-		// This is showing why double doesnt work with ==
-		if (tentacle == currentMonster.getTentacleAmount())
-		{
-			System.out.println("Exact matches of double values are not guaranteed");
-			System.out.println("Only the sepcicified values are known, one digit beyond is not known, only");
-			System.out.println("Two digitsfurther and beyond is completely unknown each could be any number");
-		}
-		else
-		{
-			System.out.println("Sweet");
-		}
+		// This is showing why double doesn't work with ==
+//		if (tentacle == currentMonster.getTentacleAmount())
+//		{
+//			System.out.println("Exact matches of double values are not guaranteed");
+//			System.out.println("Only the sepcicified values are known, one digit beyond is not known, only");
+//			System.out.println("Two digitsfurther and beyond is completely unknown each could be any number");
+//		}
+//		else
+//		{
+//			System.out.println("Sweet");
+//		}
 	}	
+		{	
+			popup.displayText("Hey! Look at me!");
+			String answer = popup.getResponse("How many meals are you eating today?");
+			System.out.println(answer);
+			popup.displayText(answer);
+		}		
+	
 }
