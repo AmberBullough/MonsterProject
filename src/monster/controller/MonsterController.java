@@ -13,14 +13,36 @@ public class MonsterController
 		popup = new MonsterDisplay();
 	}
 	
-	public void start ()
+	
+	//Helper Methods
+		private boolean isValidInteger(String sample)	
+	{
+		boolean valid = false;
+		
+		try
+		{ 
+			Integer.parseInt(sample);
+			valid = true;
+	}
+	catch(NumberFormatException error)
+		{
+		 	popup.displayText("Only integers values are valid: " + sample + " is not.");
+		}
+	return valid;
+
+}
+public void start ()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
 		System.out.println(sample);
+		
+		popup.displayText(sample.toString());
 		MarshmallowMonster realMonster = new MarshmallowMonster("Vice", 3, 5, 5, true);
 		
 		System.out.println(realMonster);
-		System.out.println("Vice is so hungry he is going to eat a tentacle!");
+		popup.displayText(realMonster.toString());
+		popup.displayText("Vice is so hungry he is going to eat a tentacle!");
+		//System.out.println("Vice is so hungry he is going to eat a tentacle!");
 		realMonster.setTentacleAmount(4);
 		System.out.println(realMonster);
 		System.out.println("Vice is so hungry he is going to eat another tentacle and two legs!");
@@ -62,39 +84,59 @@ public class MonsterController
 	
 		if(eyeConsumed < 0)
 		{
-			System.out.println("You cannot eat a negative amount silly human!");
+			//System.out.println("You cannot eat a negative amount silly human!");
 			consumed = 0;
+			popup.displayText("You cannot eat a negative amount silly human!");
 		}
 		else if(eyeConsumed > currentMonster.getEyeCount())
 		{
-			System.out.println("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
+			//System.out.println("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
+			popup.displayText("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
 		}
 		else if(eyeConsumed == 0)
 		{
-			System.out.println("Not that hungry are you?");
+			//System.out.println("Not that hungry are you?");
+			popup.displayText("Not that hungry are you?");
 		}
 		else
 		{
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
-			System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
+			//System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
+			popup.displayText("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
 		}
+		
+		popup.displayText(currentMonster.getName()+ " wants to eat his arms next. How many do you want him to eat?");
+		int armsConsumed = myScanner.nextInt(); 
 		// This is showing why double doesn't work with ==
-//		if (tentacle == currentMonster.getTentacleAmount())
-//		{
-//			System.out.println("Exact matches of double values are not guaranteed");
-//			System.out.println("Only the sepcicified values are known, one digit beyond is not known, only");
-//			System.out.println("Two digitsfurther and beyond is completely unknown each could be any number");
-//		}
-//		else
-//		{
-//			System.out.println("Sweet");
-//		}
-	}	
-		{	
+		if (armsConsumed == currentMonster.getArmCount())
+		{
+			//System.out.println("Exact matches of double values are not guaranteed");
+			popup.displayText("Exact matches of double values are not guaranteed");
+			//System.out.println("Only the specified values are known, one digit beyond is not known, only");
+			popup.displayText("Only the specified values are known, one digit beyond is not known, only");
+			//System.out.println("Two digits further and beyond is completely unknown each could be any number");
+			popup.displayText("Two digits further and beyond is completely unknown each could be any number");
+		}
+		else
+		{
+			//System.out.println("Sweet");
+			popup.displayText("Sweet!");
+		}
+		{
+			int specialAnswer;
+			String unconverted = popup.getResponse("How many do you want to eat?");
+			
+			specialAnswer = Integer.parseInt(unconverted);
+		}
+	
+	
 			popup.displayText("Hey! Look at me!");
 			String answer = popup.getResponse("How many meals are you eating today?");
 			System.out.println(answer);
 			popup.displayText(answer);
-		}		
+	}
 	
+
 }
+
+
