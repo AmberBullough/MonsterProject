@@ -80,8 +80,9 @@ public void start ()
 		popup.displayText(currentMonster.getName() + " wants to know what to eat next.");
 		popup.displayText(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
 		//System.out.println(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
-		String unconverted = popup.getResponse("How many do you want to eat?");
-		//Don't know why unconverted is underlined
+		String answer = popup.getResponse("How many do you want to eat?");
+		//Don't know why unconverted1 is underlined
+		//fixed it
 		//System.out.println("How many do you want to eat?");
 		int eyeConsumed = myScanner.nextInt();
 	
@@ -110,6 +111,7 @@ public void start ()
 		
 		popup.displayText(currentMonster.getName()+ " wants to eat his arms next. How many do you want him to eat?");
 		int armsConsumed = myScanner.nextInt(); 
+	
 		// This is showing why double doesn't work with ==
 		if (armsConsumed == currentMonster.getArmCount())
 		{
@@ -125,13 +127,13 @@ public void start ()
 			//System.out.println("Sweet");
 			popup.displayText("Sweet!");
 		}
-	
+		String answer2 = popup.getResponse("How many do you want to eat?");
 	
 	
 			popup.displayText("Hey! Look at me!");
-			String answer = popup.getResponse("How many meals are you eating today?");
-			System.out.println(answer);
-			popup.displayText(answer);
+			String answer1 = popup.getResponse("How many meals are you eating today?");
+			System.out.println(answer1);
+			popup.displayText(answer1);
 	}
 	
 
