@@ -54,10 +54,17 @@ public void start ()
 	{
 		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
 		System.out.println(currentMonster.getName() + " suggests arms. They have " + currentMonster.getArmCount());
-		System.out.println("How many do you want to eat?");
+		//System.out.println("How many do you want to eat?");
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
-	
+		String unconverted = popup.getResponse("How many do you want to eat?");
+		int specialAnswer;
+		if(isValidInteger(unconverted))
+		
+		{
+			specialAnswer = Integer.parseInt(unconverted);
+		}
+		
 		if(consumed < 0)
 		{
 			System.out.println("You cannot eat a negative amount silly human!");
