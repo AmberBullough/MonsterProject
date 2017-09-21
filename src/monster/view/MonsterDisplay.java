@@ -18,5 +18,5 @@ public class MonsterDisplay
 		
 		return response;
 	}
-	
+	//JOption is very important 
 }

@@ -68,7 +68,7 @@ public class MarshmallowMonster
 	{
 		this.hasBloop = hasBloop;
 	}
-	
+	//returning and telling what it is
 	
 	
 	public String toString()

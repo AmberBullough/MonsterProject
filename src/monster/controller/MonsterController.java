@@ -14,23 +14,7 @@ public class MonsterController
 	}
 	
 	
-	//Helper Methods
-		private boolean isValidInteger(String sample)	
-	{
-		boolean valid = false;
-		
-		try
-		{ 
-			Integer.parseInt(sample);
-			valid = true;
-	}
-	catch(NumberFormatException error)
-		{
-		 	popup.displayText("Only integers values are valid: " + sample + " is not.");
-		}
-	return valid;
 
-}
 public void start ()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
@@ -45,16 +29,20 @@ public void start ()
 		//System.out.println("Vice is so hungry he is going to eat a tentacle!");
 		realMonster.setTentacleAmount(4);
 		System.out.println(realMonster);
-		System.out.println("Vice is so hungry he is going to eat another tentacle and two legs!");
+		//System.out.println("Vice is so hungry he is going to eat another tentacle and two legs!");
+		popup.displayText("Vice is so hungry he is going to eat another tentacle and two legs!");
 		realMonster.setTentacleAmount(3);
 		realMonster.setArmCount(3);
 		interactWithTheMonster(realMonster);
+		//line above is giving an error so take a peek at it.
 	}
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
-		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
-		System.out.println(currentMonster.getName() + " suggests arms. They have " + currentMonster.getArmCount());
+		//System.out.println(currentMonster.getName() + " wants to know what to eat next.");
+		//System.out.println(currentMonster.getName() + " suggests arms. They have " + currentMonster.getArmCount());
 		//System.out.println("How many do you want to eat?");
+		popup.displayText(currentMonster.getName() + " wants to know what to eat next.");
+		popup.displayText(currentMonster.getName() + " suggests arms. They have " + currentMonster.getArmCount());
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 		String unconverted = popup.getResponse("How many do you want to eat?");
@@ -67,26 +55,34 @@ public void start ()
 		
 		if(consumed < 0)
 		{
-			System.out.println("You cannot eat a negative amount silly human!");
+			//System.out.println("You cannot eat a negative amount silly human!");
+			popup.displayText("You cannot eat a negative amount silly human!");
 			consumed = 0;
 		}
 		else if(consumed == 0)
 		{
-			System.out.println("Not that hungry are you?");
+			//System.out.println("Not that hungry are you?");
+			popup.displayText("Not that hungry are you?");
 		}
 		else if(consumed > currentMonster.getArmCount())
 		{
-			System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
+			//System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
+			popup.displayText("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
 		}
 		else
 		{
 			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-			System.out.println("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
+			//System.out.println("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
+			popup.displayText("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
 		}
 
-		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
-		System.out.println(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
-		System.out.println("How many do you want to eat?");
+		//System.out.println(currentMonster.getName() + " wants to know what to eat next.");
+		popup.displayText(currentMonster.getName() + " wants to know what to eat next.");
+		popup.displayText(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
+		//System.out.println(currentMonster.getName() + " suggests his chocolately red eyes. He has " + currentMonster.getEyeCount());
+		String unconverted = popup.getResponse("How many do you want to eat?");
+		//Don't know why unconverted is underlined
+		//System.out.println("How many do you want to eat?");
 		int eyeConsumed = myScanner.nextInt();
 	
 		if(eyeConsumed < 0)
@@ -129,12 +125,7 @@ public void start ()
 			//System.out.println("Sweet");
 			popup.displayText("Sweet!");
 		}
-		{
-			int specialAnswer;
-			String unconverted = popup.getResponse("How many do you want to eat?");
-			
-			specialAnswer = Integer.parseInt(unconverted);
-		}
+	
 	
 	
 			popup.displayText("Hey! Look at me!");
@@ -144,6 +135,38 @@ public void start ()
 	}
 	
 
-}
 
+	//Helper Methods
+		private boolean isValidInteger(String sample)	
+	{
+		boolean valid = false;
+		
+		try
+		{ 
+			Integer.parseInt(sample);
+			valid = true;
+	}
+	catch(NumberFormatException error)
+		{
+		 	popup.displayText("Only integers values are valid: " + sample + " is not.");
+		}
+	return valid;
+	}
+	private boolean isValidDouble(String sampleDouble)
+	//not an error is just telling me about it
+	{
+		Boolean valid = false;
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			popup.displayText("Only double values are valid: " + sampleDouble + " is not.");
+		}
+		return valid;
+			
+		}
+}
 
