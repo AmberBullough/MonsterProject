@@ -59,6 +59,8 @@ public void start ()
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 		String unconverted = popup.getResponse("How many do you want to eat?");
+		System.out.println(unconverted);
+		popup.displayText(unconverted);
 		int specialAnswer;
 		while(!isValidInteger(unconverted))
 		{
@@ -103,7 +105,9 @@ public void start ()
 		//Don't know why unconverted1 is underlined
 		//fixed it
 		//System.out.println("How many do you want to eat?");
-		int eyeConsumed = myScanner.nextInt();
+		String eyeConsumed = popup.getResponse("How many do you want to eat?");
+		int redEye = myScanner.nextInt();
+		
 		while(!isValidInteger(eyeConsumed))
 		{
 			popup.displayText("Try again!");
