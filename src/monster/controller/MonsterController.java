@@ -17,6 +17,19 @@ public class MonsterController
 
 public void start ()
 	{
+//	boolean finished = true;
+//	int count = 0;
+//	while (count < 100)
+	//while(finished)
+	//{
+//		popup.displayText("I am so neat! " + count);
+//		count += 1;
+//	}
+	//for(int loop = 0; loop < 15; loop +=1)
+	//{
+//		popup.displayText("I am looping " + (loop +1) +  " times out of 15!");
+	//}
+	
 		MarshmallowMonster sample = new MarshmallowMonster();
 		System.out.println(sample);
 		
@@ -47,33 +60,39 @@ public void start ()
 		int consumed = myScanner.nextInt();
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		int specialAnswer;
-		if(isValidInteger(unconverted))
-		
+		while(!isValidInteger(unconverted))
 		{
-			specialAnswer = Integer.parseInt(unconverted);
+			popup.displayText("Try again!");
+			unconverted = popup.getResponse("How many arms?!");
 		}
+//		if(isValidInteger(unconverted))
+//		{
+//			specialAnswer = Integer.parseInt(unconverted);
+//		}
 		
-		if(consumed < 0)
-		{
-			//System.out.println("You cannot eat a negative amount silly human!");
-			popup.displayText("You cannot eat a negative amount silly human!");
-			consumed = 0;
-		}
-		else if(consumed == 0)
+//		if(consumed < 0)
+//		{
+//			//System.out.println("You cannot eat a negative amount silly human!");
+//			popup.displayText("You cannot eat a negative amount silly human!");
+//			consumed = 0;
+//		}
+	
+		
+		//else if(consumed == 0)
 		{
 			//System.out.println("Not that hungry are you?");
-			popup.displayText("Not that hungry are you?");
+		//	popup.displayText("Not that hungry are you?");
 		}
-		else if(consumed > currentMonster.getArmCount())
+		//else if(consumed > currentMonster.getArmCount())
 		{
 			//System.out.println("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
-			popup.displayText("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
+		//	popup.displayText("That is impossible! I only gave " + currentMonster.getArmCount() + " arms!");
 		}
-		else
+		//else
 		{
-			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+		//	currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
 			//System.out.println("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
-			popup.displayText("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
+		//	popup.displayText("Thank you so much! I only have this many arms now: " + currentMonster.getArmCount());
 		}
 
 		//System.out.println(currentMonster.getName() + " wants to know what to eat next.");
@@ -85,29 +104,34 @@ public void start ()
 		//fixed it
 		//System.out.println("How many do you want to eat?");
 		int eyeConsumed = myScanner.nextInt();
-	
-		if(eyeConsumed < 0)
+		while(!isValidInteger(eyeConsumed))
 		{
+			popup.displayText("Try again!");
+			eyeConsumed = popup.getResponse("How many eyes?!");
+		}
+
+		//if(eyeConsumed < 0)
+	//	{
 			//System.out.println("You cannot eat a negative amount silly human!");
-			consumed = 0;
-			popup.displayText("You cannot eat a negative amount silly human!");
-		}
-		else if(eyeConsumed > currentMonster.getEyeCount())
-		{
-			//System.out.println("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
-			popup.displayText("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
-		}
-		else if(eyeConsumed == 0)
-		{
-			//System.out.println("Not that hungry are you?");
-			popup.displayText("Not that hungry are you?");
-		}
-		else
-		{
-			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
-			//System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
-			popup.displayText("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
-		}
+	//		consumed = 0;
+	//		popup.displayText("You cannot eat a negative amount silly human!");
+	//	}
+	//	else if(eyeConsumed > currentMonster.getEyeCount())
+	//	{
+	//		//System.out.println("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
+	//		popup.displayText("That is impossible! I only gave " + currentMonster.getEyeCount() + " eyes!");
+	//	}
+	//	else if(eyeConsumed == 0)
+	//	{
+	//		//System.out.println("Not that hungry are you?");
+	//		popup.displayText("Not that hungry are you?");
+	//	}
+	//	else
+	//	{
+	//		currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeConsumed);
+	//		//System.out.println("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
+	//		popup.displayText("Thank you so much! I only have this many eyes now: " + currentMonster.getEyeCount());
+	//	}
 		
 		popup.displayText(currentMonster.getName()+ " wants to eat his arms next. How many do you want him to eat?");
 		int armsConsumed = myScanner.nextInt(); 
