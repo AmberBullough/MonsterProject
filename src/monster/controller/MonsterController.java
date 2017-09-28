@@ -3,14 +3,18 @@ package monster.controller;
 import monster.model.MarshmallowMonster;
 import monster.view.MonsterDisplay;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonsterController 
 {
 	private MonsterDisplay popup;
+	private List<MarshmallowMonster> monsterList;
 		
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 	
 	
@@ -36,19 +40,41 @@ public void start ()
 		popup.displayText(sample.toString());
 		MarshmallowMonster realMonster = new MarshmallowMonster("Vice", 3, 5, 5, true);
 		
-		System.out.println(realMonster);
-		popup.displayText(realMonster.toString());
-		popup.displayText("Vice is so hungry he is going to eat a tentacle!");
+	//	System.out.println(realMonster);
+//		popup.displayText(realMonster.toString());
+	//	popup.displayText("Vice is so hungry he is going to eat a tentacle!");
 		//System.out.println("Vice is so hungry he is going to eat a tentacle!");
-		realMonster.setTentacleAmount(4);
-		System.out.println(realMonster);
+//		realMonster.setTentacleAmount(4);
+//		System.out.println(realMonster);
 		//System.out.println("Vice is so hungry he is going to eat another tentacle and two legs!");
-		popup.displayText("Vice is so hungry he is going to eat another tentacle and two legs!");
-		realMonster.setTentacleAmount(3);
-		realMonster.setArmCount(3);
-		interactWithTheMonster(realMonster);
+	//	popup.displayText("Vice is so hungry he is going to eat another tentacle and two legs!");
+	//	realMonster.setTentacleAmount(3);
+	//	realMonster.setArmCount(3);
 		//line above is giving an error so take a peek at it.
+		monsterList.add(realMonster);
+		monsterList.add(sample);
+		testList();
+		//interactWithTheMonster(realMonster);
+		
 	}
+
+	private void testList() 
+	{
+		for(int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster = monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String newName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(newName);
+			popup.displayText(currentMonster.getName());
+		}
+		for(MarshmallowMonster current : monsterList)
+		{
+			popup.displayText(current.getName());
+			String newName = popup.getResponse("What should my new name be?");
+		}
+	}
+	
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
 		//System.out.println(currentMonster.getName() + " wants to know what to eat next.");
